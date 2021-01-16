@@ -109,9 +109,17 @@
     cursor: pointer;
 }
 
-.item__button{
+.item__button__edit{
     all: unset;
     background: url(../images/edit.svg) no-repeat top right;
+    background-size: cover;
+    width: 30px;
+    height: 30px;
+}
+
+.item__button__delete{
+    all: unset;
+    background: url(../images/delete.svg) no-repeat top right;
     background-size: cover;
     width: 30px;
     height: 30px;

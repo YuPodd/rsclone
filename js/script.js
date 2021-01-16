@@ -41,14 +41,19 @@ function createList() {
 function createItem() {
     const item = createBlock("div", "item");
     const item__text = createBlock("p", "item__text");
-    const item__button = createBlock("button", "item__button");
-    item__button.addEventListener('click', function(e) {
+    const item__button__edit = createBlock("button", "item__button__edit");
+    const item__button__delete =createBlock("button", "item__button__delete")
+    item__button__edit.addEventListener('click', function(e) {
         editSaveTextItem(e);
     });
-    item__button.value = "Edit";
+    item__button__delete.addEventListener('click', function(e) {
+        deleteItem(e);
+    });
+    item__button__edit.value = "Edit";
     item__text.innerHTML = "Item";
+    item.appendChild(item__button__delete);
     item.appendChild(item__text);
-    item.appendChild(item__button);
+    item.appendChild(item__button__edit);
     return item;
 }
 
@@ -94,9 +99,13 @@ const editSaveTextItem = function(e) {
 
 //функция удаления одного листа
 const deleteList = function(e){
-    const list__header = e.target.parentNode;
-    const list = list__header.parentNode;
-    list.remove();
+    const list__header = e.target.parentNode.parentNode;
+    list__header.remove();
+}
+
+const deleteItem = function(e) {
+    const item = e.target.parentNode;
+    item.remove();
 }
 
 document.querySelector('.button-createList').addEventListener('click', outputList);
