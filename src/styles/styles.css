@@ -1,0 +1,6 @@
+@import "bootstrap.css";
+
+.night {
+    filter: invert(85%);
+    transition: 1s all;
+}
