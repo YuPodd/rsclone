@@ -1,13 +1,9 @@
 //функция создания блока с определенными тегами и классами
-export function createBlock(tag,className){
-    const block = document.createElement(tag);
-    if(className){
-        block.classList.add(className);
-    }
-    return block;
-}
+//const f = require ('./main');
+import {
+    createBlock,
+} from './main';
 
-//функция создания одного листа и его возврата
 function createList() {
     const list = createBlock("div", "list");
     const list__header = createBlock("div", "list__header")
