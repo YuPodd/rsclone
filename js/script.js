@@ -1,5 +1,5 @@
 //функция создания блока с определенными тегами и классами
-function createBlock(tag,className){
+export function createBlock(tag,className){
     const block = document.createElement(tag);
     if(className){
         block.classList.add(className);
