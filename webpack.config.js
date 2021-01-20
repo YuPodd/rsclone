@@ -50,7 +50,15 @@ module.exports = {
       },
       {
         test: /\.(?:ico|gif|png|jpg|jpeg|svg)$/i,
-        type: 'asset/resource',
+        use: [{
+          loader: 'url-loader',
+          options: {
+              limit: 8000,
+          }
+      },
+      'image-webpack-loader'
+  ]
+        
       },
       {
         test: /\.(woff(2)?|eot|ttf|otf|)$/,
