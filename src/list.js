@@ -1,13 +1,14 @@
 //функция создания блока с определенными тегами и классами
 
-function createBlock(tag,className){
+/*function createBlock(tag,className){
     const block = document.createElement(tag);
     if(className){
         block.classList.add(className);
     }
     return block;
-}
+}*/
 
+import createBlock from './exportFunctions'
 
 function createList() {
     const list = createBlock("div", "list");
