@@ -1,9 +1,9 @@
 import './styles/styles.css'
 import './styles/bootstrap.css'
 import { Tooltip, Toast, Popover } from 'bootstrap';
-import './boardsComponent/boardsMenu.js';
-import { BoardsMenu } from './boardsComponent/boardsMenu.js';
+import './scripts/boardsComponent/boardsMenu.js';
+import { AppComponent } from './scripts/AppComponent';
 
 console.log("Hello rsclone");
 
-const boadrs = new BoardsMenu();
+const appComponent = new AppComponent();
