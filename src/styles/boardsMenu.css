@@ -1,16 +1,12 @@
-button,
-input {
-    outline: none;
-    border: none;
-}
-
-.boards-menu_container.hidden {
+.boards-menu_container.hidden,
+.boards-menu_content.hidden,
+.popup_content.hidden {
     display: none;
 }
 
 .boards-menu_container.visible{
-    display: flex;
     position: fixed;
+    display: flex;
     left: 0;
     width: 100vw;
     height: 100%;
@@ -25,10 +21,6 @@ input {
     background-color: white;
 }
 
-.boards-menu_content.hidden {
-    display: none;
-}
-
 .add-board {
     background-color: inherit;
 }
@@ -37,18 +29,10 @@ input {
     font-weight: bold;
 }
 
-.add-board:focus {
-    outline: none;
-}
-
-.popup_content.hidden {
-    display: none;
-}
-
 .popup_content.visibly {
+    position: fixed;
     display: flex;
     justify-content: stretch;
-    position: fixed;
     left: 15vw;
     top: 15vh;
     width: 70vw;
@@ -67,11 +51,6 @@ input {
     right: calc(15vw - 30px);
     top: calc(15vh - 25px);
     border: 1px solid white;
-    opacity: 0.7;
-}
-
-.exit_container:hover {
-    opacity: 1;
 }
 
 .exit_button {
@@ -105,6 +84,7 @@ input {
     border-radius: 5px;
 }
 
+.add-board:focus,
 .board-name_input:focus,
 .background-picture:focus,
 .create-board_button:focus {
@@ -117,7 +97,19 @@ input {
 
 .create-board_button {
     background-color: white;
+}
+
+.exit_container,
+.board-name_input,
+.create-board_button {
     opacity: 0.5;
+}
+
+.exit_container:hover,
+.board-name_input:hover,
+.board-name_input:focus,
+.create-board_button:hover {
+    opacity: 0.8;
 }
 
 .backgrounds_container {
@@ -129,13 +121,9 @@ input {
     width: 10px;
 }
 
-.backgrounds_container::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px lighten(black, 70%);
-}
-
 .backgrounds_container::-webkit-scrollbar-thumb {
-  background-color: gray;
-  outline: 1px solid black;
+    border-radius: 5px;
+    background-color: gray;
 }
 
 .background-picture {
@@ -146,5 +134,4 @@ input {
 
 .background-picture:last-child {
     border: 1px solid;
-
 }

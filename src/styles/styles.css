@@ -1,1 +1,12 @@
+@import './navbar.css';
 @import './boardsMenu.css';
+
+button,
+input {
+    outline: none;
+    border: none;
+}
+
+button:focus {
+    outline: none;
+}

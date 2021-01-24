@@ -1,5 +1,7 @@
 import ElementsCreator from '../utils/elementsCreator';
+import board from '../../assets/ico/board.svg';
 import { AddBoard } from './addBoard';
+
 
 export class BoardsMenu {
     constructor() {
@@ -11,6 +13,10 @@ export class BoardsMenu {
     }
 
     createMenuList() {
+        const navbarButtonIco = ElementsCreator.createElement('img', 'navbar-boards_ico', this.navbarButton);
+        navbarButtonIco.src = board;
+        const navbarButtonInnerText = ElementsCreator.createElement('p', 'navbar-boards_button-name', this.navbarButton);
+        navbarButtonInnerText.innerText = 'Boards';
         const mainContainer = document.querySelector('.boards-menu_container');
         const menuContent = ElementsCreator.createElement('div', 'boards-menu_content visible', mainContainer);
         const addBoardCommand = ElementsCreator.createElement('button', 'add-board', menuContent);
