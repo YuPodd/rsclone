@@ -32,7 +32,6 @@ export class AddBoard {
     }
 
     openPopup() {
-        console.log(this.menu)
         this.menu.className = 'boards-menu_content hidden';
         this.popup.className = 'popup_content visibly';
     }
