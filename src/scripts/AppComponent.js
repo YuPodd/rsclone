@@ -1,4 +1,5 @@
 import { BoardsMenu } from './boardsComponent/boardsMenu';
+import LocalStorage from './utils/localStorage';
 
 export class AppComponent {
     constructor() {
@@ -13,6 +14,7 @@ export class AppComponent {
                 alert('Enter the board name');
             } else {
                boards.changeMenuListCondition.call(boards.htmlElements); 
+               LocalStorage.setData('Boards', boards.dataOfNewBoard);
             }
             console.log(boards.dataOfNewBoard); // data for creating new User board
         })
