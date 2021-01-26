@@ -1,5 +1,6 @@
 @import './navbar.css';
 @import './boardsMenu.css';
+@import './timeContainer.css';
 
 button,
 input {
@@ -10,3 +11,4 @@ input {
 button:focus {
     outline: none;
 }
+
