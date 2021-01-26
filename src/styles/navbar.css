@@ -1,4 +1,7 @@
-
+#navbar-panel{
+    display: flex;
+    justify-content: space-between;
+}
 .navbar-boards {
     display: flex;
     justify-content: space-between;
