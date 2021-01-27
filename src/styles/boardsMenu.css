@@ -15,18 +15,43 @@
 
 .boards-menu_content.visible {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     width: 250px;
     height: 100%;
     background-color: white;
+    overflow: auto;
 }
 
-.add-board {
+.backgrounds_container::-webkit-scrollbar,
+.boards-menu_content::-webkit-scrollbar {
+    width: 10px;
+}
+
+.backgrounds_container::-webkit-scrollbar-thumb,
+.boards-menu_content::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background-color: gray;
+}
+
+.add-board_button {
     background-color: inherit;
 }
 
-.add-board:hover {
+.add-board_button:hover,
+.boards-menu_board-link span {
     font-weight: bold;
+}
+
+.boards-menu_board-link {
+    display: flex;
+    align-items: center;
+    margin: 3px 10px;
+    padding: 0;
+}
+
+.boards-menu_board-link span {
+    display: block;
+    margin: 0 10px;
 }
 
 .popup_content.visibly {
@@ -70,13 +95,14 @@
     transform: rotate(90deg);
 }
 
+.background-ico,
 .input_container,
 .background-picture {
     background-size: cover;
 }
 
 .board-name_input,
-.background-picture,
+.backgrounds_container .background-ico,
 .create-board_button,
 .popup_content,
 .input_container {
@@ -84,9 +110,10 @@
     border-radius: 5px;
 }
 
-.add-board:focus,
-.board-name_input:focus,
-.background-picture:focus,
+.boards-menu_board-link:focus,
+.add-board_button:focus,
+.board_button-name_input:focus,
+.background-ico:focus,
 .create-board_button:focus {
     outline: none;
 }
@@ -99,17 +126,19 @@
     background-color: white;
 }
 
+.boards-menu_board-link,
 .exit_container,
 .board-name_input,
 .create-board_button {
-    opacity: 0.5;
+    opacity: 0.7;
 }
 
+.boards-menu_board-link:hover,
 .exit_container:hover,
 .board-name_input:hover,
 .board-name_input:focus,
 .create-board_button:hover {
-    opacity: 0.8;
+    opacity: 0.9;
 }
 
 .backgrounds_container {
@@ -117,21 +146,12 @@
     overflow: auto;
 }
 
-.backgrounds_container::-webkit-scrollbar {
-    width: 10px;
-}
-
-.backgrounds_container::-webkit-scrollbar-thumb {
-    border-radius: 5px;
-    background-color: gray;
-}
-
-.background-picture {
+.background-ico {
     width: 50px;
     height: 50px;
     background-color: inherit;
 }
 
-.background-picture:last-child {
+.backgrounds_container .background-ico:last-child {
     border: 1px solid;
 }

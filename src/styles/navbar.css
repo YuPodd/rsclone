@@ -1,3 +1,6 @@
+.navbar {
+    position: absolute;
+}
 
 .navbar-boards {
     display: flex;

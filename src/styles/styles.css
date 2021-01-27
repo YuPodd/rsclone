@@ -1,5 +1,6 @@
 @import './navbar.css';
 @import './boardsMenu.css';
+@import './desktop.css';
 
 button,
 input {
@@ -9,4 +10,9 @@ input {
 
 button:focus {
     outline: none;
+}
+
+.body {
+    background-size: cover;
+    background-repeat: no-repeat;
 }

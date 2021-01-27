@@ -1,5 +1,5 @@
 import { BoardsMenu } from './boardsComponent/boardsMenu';
-import LocalStorage from './utils/localStorage';
+import { Desktop } from './desktopComponent/desktop';
 
 export class AppComponent {
     constructor() {
@@ -8,15 +8,21 @@ export class AppComponent {
 
     setEventsListeners() {
         const boards = new BoardsMenu();
-        let addNewBoardCommand = boards.addNewBoardCommand;
-        addNewBoardCommand.addEventListener('click', function (){
-            if (boards.dataOfNewBoard.name == "") {
-                alert('Enter the board name');
-            } else {
-               boards.changeMenuListCondition.call(boards.htmlElements); 
-               LocalStorage.setData('Boards', boards.dataOfNewBoard);
+        const desktop = new Desktop();
+        boards.existingBoardsMenuLinks.forEach(element => {
+            element.addEventListener('click', function () {
+                boards.changeMenuListCondition.call(boards.htmlElements);
+                desktop.showDesktop({name: this.id, background: this.style.backgroundImage})
+            })
+        });
+        boards.addNewBoardCommand.addEventListener('click', function (){
+            let desktopData = boards.addBoard.saveNewBoard()
+            if (desktopData === null) {
+                return;
             }
-            console.log(boards.dataOfNewBoard); // data for creating new User board
+            boards.changeMenuListCondition.call(boards.htmlElements);
+            boards.crateBoardMenuLink(boards.menuContent, desktopData);
+            desktop.showDesktop(desktopData);
         })
     }
 }
