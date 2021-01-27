@@ -1,5 +1,6 @@
 import ElementsCreator from '../utils/elementsCreator';
 import { backgroundImages } from '../constants/boardBackgrounds';
+import LocalStorage from '../utils/localStorage';
 
 
 export class AddBoard {
@@ -23,7 +24,7 @@ export class AddBoard {
         this.backgroundImages.push(null);
         const backgroundsCollection = [];
         for(let i = 0; i < this.backgroundImages.length; i ++) {
-            const box = ElementsCreator.createElement('button', 'background-picture', backgroundsContainer);
+            const box = ElementsCreator.createElement('button', 'background-ico', backgroundsContainer);
             backgroundsCollection.push(box);
             box.style.backgroundImage = `url(${this.backgroundImages[i]})`;
         }
@@ -49,5 +50,15 @@ export class AddBoard {
                 newBoardData.background = this.style.backgroundImage;
             })
         })
+    }
+
+    saveNewBoard() {
+        if (this.newBoardData.name == "") {
+            alert('Enter the board name');
+            return null;
+        } else {
+           LocalStorage.setArrayData('existingBoards', this.newBoardData);
+        }
+        return this.newBoardData;
     }
 }

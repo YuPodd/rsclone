@@ -1,5 +1,6 @@
 @import './navbar.css';
 @import './boardsMenu.css';
+@import './desktop.css';
 @import './timeContainer.css';
 
 button,
@@ -12,3 +13,7 @@ button:focus {
     outline: none;
 }
 
+.body {
+    background-size: cover;
+    background-repeat: no-repeat;
+}

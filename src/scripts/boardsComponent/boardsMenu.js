@@ -1,4 +1,5 @@
 import ElementsCreator from '../utils/elementsCreator';
+import LocalStorage from '../utils/localStorage';
 import board from '../../assets/ico/board.svg';
 import { AddBoard } from './addBoard';
 
@@ -6,10 +7,13 @@ import { AddBoard } from './addBoard';
 export class BoardsMenu {
     constructor() {
         this.navbarButton = document.querySelector('.navbar-boards');
+        this.menuContent;
+        this.existingBoardsData = LocalStorage.getData('existingBoards');
+        this.existingBoardsMenuLinks = [];
+        this.addBoard;
         this.createMenuList();
         this.htmlElements;
         this.addNewBoardCommand;
-        this.dataOfNewBoard;
     }
 
     createMenuList() {
@@ -18,23 +22,39 @@ export class BoardsMenu {
         const navbarButtonInnerText = ElementsCreator.createElement('p', 'navbar-boards_button-name', this.navbarButton);
         navbarButtonInnerText.innerText = 'Boards';
         const mainContainer = document.querySelector('.boards-menu_container');
-        const menuContent = ElementsCreator.createElement('div', 'boards-menu_content visible', mainContainer);
-        const addBoardCommand = ElementsCreator.createElement('button', 'add-board', menuContent);
+        this.menuContent = ElementsCreator.createElement('div', 'boards-menu_content visible', mainContainer);
+        const addBoardCommand = ElementsCreator.createElement('button', 'add-board_button', this.menuContent);
         addBoardCommand.innerText = 'Add new board';
-        const addBoard = new AddBoard(mainContainer);
-        this.htmlElements = {wrapper: mainContainer, menu: menuContent, popup: addBoard.popupContent};
-        this.addBoardsListeners(mainContainer, menuContent, addBoardCommand, addBoard);
-        this.addNewBoardCommand = addBoard.createBoardCommand;
-        this.dataOfNewBoard = addBoard.newBoardData;
+        const wrapperThis = this;
+        if (this.existingBoardsData !== null) {
+            this.existingBoardsData.forEach(element => {
+                wrapperThis.crateBoardMenuLink(wrapperThis.menuContent, element);
+            });
+        }
+        this.addBoard = new AddBoard(mainContainer);
+        this.htmlElements = {wrapper: mainContainer, menu: this.menuContent, popup: this.addBoard.popupContent};
+        this.addBoardsListeners(mainContainer, addBoardCommand);
+        this.addNewBoardCommand = this.addBoard.createBoardCommand;
     }
 
-    addBoardsListeners(mainContainer, menuContent, addBoardCommand, addBoard) {
+    crateBoardMenuLink(parent, board) {
+        const boardLink = ElementsCreator.createElement('button', 'boards-menu_board-link', parent);
+        boardLink.id = board.name;
+        boardLink.style.backgroundImage = board.background;
+        this.existingBoardsMenuLinks.push(boardLink);
+        const backgroundIco = ElementsCreator.createElement('div', 'background-ico', boardLink);
+        backgroundIco.style.backgroundImage = board.background;
+        const linkName = ElementsCreator.createElement('span', 'boards-menu_board-name', boardLink);
+        linkName.innerText = board.name;
+    }
+
+    addBoardsListeners(mainContainer, addBoardCommand) {
         this.navbarButton.onclick = this.changeMenuListCondition.bind(this.htmlElements);
         mainContainer.onclick = this.changeMenuListCondition.bind(this.htmlElements);
-        menuContent.onclick = function() {
+        this.menuContent.onclick = function() {
             event.stopPropagation()
         };
-        addBoardCommand.onclick = addBoard.openPopup.bind(this.htmlElements);
+        addBoardCommand.onclick = this.addBoard.openPopup.bind(this.htmlElements);
     }
 
     changeMenuListCondition() {
