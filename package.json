@@ -38,10 +38,11 @@
     "url-loader": "^4.1.1",
     "webpack": "^5.12.2",
     "webpack-cli": "^4.3.1",
-    "webpack-dev-server": "^3.11.1"
+    "webpack-dev-server": "^3.11.2"
   },
   "dependencies": {
     "@popperjs/core": "^2.6.0",
-    "bootstrap": "^5.0.0-beta1"
+    "bootstrap": "^5.0.0-beta1",
+    "sortablejs": "^1.13.0"
   }
 }

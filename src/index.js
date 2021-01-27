@@ -1,8 +1,8 @@
 import './styles/styles.css'
 import './styles/bootstrap.css'
 import { Tooltip, Toast, Popover } from 'bootstrap';
-import DayNightMode from "./dayNightMode";
+import './scripts/boardsComponent/boardsMenu.js';
+import { AppComponent } from './scripts/AppComponent';
+import { showTimeAndDate } from './scripts/time';
 
-new DayNightMode().init();
-
-console.log("Hello rsclone");
+const appComponent = new AppComponent();

@@ -1,6 +1,19 @@
-@import "bootstrap.css";
+@import './navbar.css';
+@import './boardsMenu.css';
+@import './desktop.css';
+@import './timeContainer.css';
 
-.night {
-    filter: invert(85%);
-    transition: 1s all;
+button,
+input {
+    outline: none;
+    border: none;
+}
+
+button:focus {
+    outline: none;
+}
+
+.body {
+    background-size: cover;
+    background-repeat: no-repeat;
 }
