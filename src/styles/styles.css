@@ -1,6 +1,7 @@
 @import './navbar.css';
 @import './boardsMenu.css';
 @import './desktop.css';
+@import './timeContainer.css';
 
 button,
 input {
