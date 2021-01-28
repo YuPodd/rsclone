@@ -2,11 +2,11 @@ import ElementsCreator from '../utils/elementsCreator';
 import LocalStorage from '../utils/localStorage';
 import board from '../../assets/ico/board.svg';
 import { AddBoard } from './addBoard';
-
+import { NAVBAR_BOARDS_BUTTON } from '../constants/htmlElements';
+import { BOARDS_MENU_CONTAINER } from '../constants/htmlElements';
 
 export class BoardsMenu {
     constructor() {
-        this.navbarButton = document.querySelector('.navbar-boards');
         this.menuContent;
         this.existingBoardsData = LocalStorage.getData('existingBoards');
         this.existingBoardsMenuLinks = [];
@@ -17,12 +17,11 @@ export class BoardsMenu {
     }
 
     createMenuList() {
-        const navbarButtonIco = ElementsCreator.createElement('img', 'navbar-boards_ico', this.navbarButton);
+        const navbarButtonIco = ElementsCreator.createElement('img', 'navbar-boards_ico', NAVBAR_BOARDS_BUTTON);
         navbarButtonIco.src = board;
-        const navbarButtonInnerText = ElementsCreator.createElement('p', 'navbar-boards_button-name', this.navbarButton);
+        const navbarButtonInnerText = ElementsCreator.createElement('p', 'navbar-boards_button-name', NAVBAR_BOARDS_BUTTON);
         navbarButtonInnerText.innerText = 'Boards';
-        const mainContainer = document.querySelector('.boards-menu_container');
-        this.menuContent = ElementsCreator.createElement('div', 'boards-menu_content visible', mainContainer);
+        this.menuContent = ElementsCreator.createElement('div', 'boards-menu_content visible', BOARDS_MENU_CONTAINER);
         const addBoardCommand = ElementsCreator.createElement('button', 'add-board_button', this.menuContent);
         addBoardCommand.innerText = 'Add new board';
         const wrapperThis = this;
@@ -31,9 +30,9 @@ export class BoardsMenu {
                 wrapperThis.crateBoardMenuLink(wrapperThis.menuContent, element);
             });
         }
-        this.addBoard = new AddBoard(mainContainer);
-        this.htmlElements = {wrapper: mainContainer, menu: this.menuContent, popup: this.addBoard.popupContent};
-        this.addBoardsListeners(mainContainer, addBoardCommand);
+        this.addBoard = new AddBoard();
+        this.htmlElements = {wrapper: BOARDS_MENU_CONTAINER, menu: this.menuContent, popup: this.addBoard.popupContent};
+        this.addBoardsListeners(addBoardCommand);
         this.addNewBoardCommand = this.addBoard.createBoardCommand;
     }
 
@@ -48,9 +47,9 @@ export class BoardsMenu {
         linkName.innerText = board.name;
     }
 
-    addBoardsListeners(mainContainer, addBoardCommand) {
-        this.navbarButton.onclick = this.changeMenuListCondition.bind(this.htmlElements);
-        mainContainer.onclick = this.changeMenuListCondition.bind(this.htmlElements);
+    addBoardsListeners(addBoardCommand) {
+        NAVBAR_BOARDS_BUTTON.onclick = this.changeMenuListCondition.bind(this.htmlElements);
+        BOARDS_MENU_CONTAINER.onclick = this.changeMenuListCondition.bind(this.htmlElements);
         this.menuContent.onclick = function() {
             event.stopPropagation()
         };

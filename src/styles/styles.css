@@ -2,6 +2,8 @@
 @import './boardsMenu.css';
 @import './desktop.css';
 @import './timeContainer.css';
+@import './modalWindow.css';
+@import './varibles.css';
 
 button,
 input {

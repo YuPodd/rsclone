@@ -1,0 +1,8 @@
+:root {
+    --unhover-opasity: 0.7;
+    --hover-opasity: 0.9;
+    --black-border: 1px solid black;
+    --white-border: 1px solid white;
+    --form-border-radius: 5px;
+    --mid-tarnsition: 0.7s;
+}
