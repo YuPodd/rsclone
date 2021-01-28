@@ -10,7 +10,7 @@
     left: 0;
     width: 100vw;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.7)
+    background-color: rgba(0, 0, 0, 0.7);
 }
 
 .boards-menu_content.visible {
@@ -29,8 +29,16 @@
 
 .backgrounds_container::-webkit-scrollbar-thumb,
 .boards-menu_content::-webkit-scrollbar-thumb {
-    border-radius: 5px;
+    border-radius: var(--form-border-radius);
     background-color: gray;
+}
+
+.add-board_button,
+.boards-menu_board-link,
+.board-name_input,
+.create-board_button,
+.exit_container:hover {
+    transition: var(--mid-tarnsition);
 }
 
 .add-board_button {
@@ -50,8 +58,17 @@
 }
 
 .boards-menu_board-link span {
-    display: block;
-    margin: 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: calc(100% - 50px);
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.7)
+}
+
+.popup_content.visibly,
+.exit_container {
+    border: var(--white-border);
 }
 
 .popup_content.visibly {
@@ -62,7 +79,6 @@
     top: 15vh;
     width: 70vw;
     height: 40vh;
-    border: 1px solid white;
 }
 
 .exit_container {
@@ -75,7 +91,6 @@
     border-radius: 50%;
     right: calc(15vw - 30px);
     top: calc(15vh - 25px);
-    border: 1px solid white;
 }
 
 .exit_button {
@@ -95,6 +110,10 @@
     transform: rotate(90deg);
 }
 
+.input_container {
+    transition: var(--mid-tarnsition);
+}
+
 .background-ico,
 .input_container,
 .background-picture {
@@ -107,7 +126,7 @@
 .popup_content,
 .input_container {
     margin: 5px;
-    border-radius: 5px;
+    border-radius: var(--form-border-radius);
 }
 
 .boards-menu_board-link:focus,
@@ -130,15 +149,16 @@
 .exit_container,
 .board-name_input,
 .create-board_button {
-    opacity: 0.7;
+    opacity: var(--unhover-opasity);
 }
 
 .boards-menu_board-link:hover,
 .exit_container:hover,
 .board-name_input:hover,
 .board-name_input:focus,
+.background-ico:focus,
 .create-board_button:hover {
-    opacity: 0.9;
+    opacity: var(--hover-opasity);
 }
 
 .backgrounds_container {
@@ -153,5 +173,5 @@
 }
 
 .backgrounds_container .background-ico:last-child {
-    border: 1px solid;
+    border: var(--black-border);
 }
