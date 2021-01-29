@@ -1,17 +1,8 @@
-//функция создания блока с определенными тегами и классами
-
-/*function createBlock(tag,className){
-    const block = document.createElement(tag);
-    if(className){
-        block.classList.add(className);
-    }
-    return block;
-}*/
-
 import createBlock from './exportFunctions'
 
 let enableDisable = 1;
 
+/*создание листа и его возврат */
 function createList() {
     const list = createBlock("div", "list");
     const list__header = createBlock("div", "list__header")
@@ -130,8 +121,6 @@ const deleteItem = function(e) {
 //создание popup
 function createPopup(){
     const menu__container = createBlock("div", "menu-container");
-    //hidden++;
-    //menu__container.classList.add(`hidden${hidden}`);
     const menu = createBlock("div", "menu");
     const menu__container__title = createBlock("div", "menu-container__title");
     const menu__title = createBlock("h4", "menu__title");
@@ -142,9 +131,6 @@ function createPopup(){
     });
     const menu__container__description = createBlock("div", "menu-container__description");
     const menu__description = createBlock("p", "menu__description");
-    /*menu__description.addEventListener('click', function(){
-        addDescription();
-    });*/
     menu__description.innerHTML = "Add a description ...";
     menu__description.addEventListener('click', function(e){
         editSaveTextDescription(e);
@@ -177,6 +163,7 @@ function createPopup(){
     return menu__container;
 }
 
+/* открытие всплывающего окна */
 function openPopup(e) {
     const menu__container = document.querySelector(".menu-container");
     menu__container.style.display = "flex";
@@ -187,19 +174,6 @@ function openPopup(e) {
 function closePopup(){
     const menu__container = document.querySelector(".menu-container");
     menu__container.style.display = "none";
-}
-
-/*function createEnteringDescription(){
-    const menu__container__description = document.querySelector('.menu-container__description')
-    const editDescription = createBlock("textarea", "menu-container__description__textarea");
-    const saveDescription__button = createBlock("button", "menu-container__description__button");
-    menu__container__description.appendChild(editDescription);
-    return menu__container__description;
-}*/
-
-function addDescription(){
-    document.querySelector('.menu__description').style.display = "none";
-    //createEnteringDescription();
 }
 
 const editSaveTextDescription = function(e) {
