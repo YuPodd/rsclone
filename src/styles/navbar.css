@@ -1,0 +1,28 @@
+.navbar {
+    position: absolute;
+}
+
+#navbar-panel{
+    display: flex;
+    justify-content: space-between;
+}
+
+.navbar-boards_button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: inherit;
+    width: 85px;
+}
+
+.navbar-boards_button:focus {
+    outline: none;
+}
+
+.navbar-boards_button-name {
+    margin: auto 0;
+}
+
+.navbar-boards_button:hover {
+    font-weight: bold;
+}

@@ -1,0 +1,46 @@
+.modal_container.hidden {
+    display: none;
+}
+
+.modal_container.visibly,
+.modal_content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal_container.visibly {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal_content {
+    flex-direction: column;
+    width: 200px;
+    height: 100px;
+}
+
+.modal_content,
+.modal-accept_button {
+    border-radius: var(--form-border-radius);
+    background-color: white;
+}
+
+.modal-accept_button {
+    border: var(--black-border);
+    opacity: var(--unhover-opasity);
+    transition: var(--mid-tarnsition);
+}
+
+.modal-accept_button:hover {
+    opacity: var(--hover-opasity);
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.modal-accept_button:focus {
+    outline: none;
+}
