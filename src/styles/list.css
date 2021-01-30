@@ -4,10 +4,6 @@
     border: 0;
 }
 
-.body{
-    background: blue;
-}
-
 .container{
     display: flex;
     flex-direction: row;
@@ -64,10 +60,6 @@
 .item__text{
     margin: auto 0;
     padding: 5px;
-}
-
-.button-createList{
-    all: unset;
 }
 
 .button-createList :hover{

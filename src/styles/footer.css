@@ -1,0 +1,14 @@
+.footer{
+    opacity: 70%;
+    border: none;
+}
+.github-container{
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+}
+@media screen and (max-width: 800px) {
+    .footer-container {
+      font-size: 0.8rem;
+    }
+  }
