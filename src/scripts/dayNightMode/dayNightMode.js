@@ -1,29 +1,28 @@
-class DayNightMode {
-    constructor() {
-        this.init();
+const darkMode = document.getElementById('darkMode');
+window.addEventListener('load', () => {
+    if (darkMode) {
+        initMode();
+        darkMode.addEventListener('change', () => {
+            resetMode();
+        });
     }
+});
 
-    init() {
-        document.querySelector('#customSwitch1').addEventListener('click', () => this.changeMode());
-        // this.switcher.addEventListener('click', );
-        this.checkTime();
-    }
-
-    checkTime() {
-        let currentTime = new Date().getHours();
-        if (currentTime > 18 || currentTime < 6) {
-            this.changeMode();
-        }
-        this.callEveryHour();
-    }
-
-    callEveryHour() {
-        setInterval(this.checkTime(), 1000 * 60 * 60);
-    }
-
-    changeMode() {
-        document.documentElement.classList.add('night');
-    }
+function initMode() {
+    const darkThemeSelected =
+        localStorage.getItem('darkMode') !== null &&
+        localStorage.getItem('darkMode') === 'dark';
+    darkMode.checked = darkThemeSelected;
+    darkThemeSelected ? document.body.setAttribute('data-theme', 'dark') :
+        document.body.removeAttribute('data-theme');
 }
 
-export default DayNightMode;
+function resetMode() {
+    if (darkMode.checked) {
+        document.body.setAttribute('data-theme', 'dark');
+        localStorage.setItem('darkMode', 'dark');
+    } else {
+        document.body.removeAttribute('data-theme');
+        localStorage.removeItem('darkMode');
+    }
+}
