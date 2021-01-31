@@ -14,9 +14,9 @@ export class AppComponent {
         const desktop = new Desktop(modalWindow);
         boards.existingBoardsMenuLinks.forEach(element => {
             element.addEventListener('click', function () {
-                Server.get();
+                //Server.get();
                 boards.changeMenuListCondition.call(boards.htmlElements);
-                desktop.showDesktop({name: this.id, background: this.style.backgroundImage})
+                desktop.showDesktop(desktop.getBoardData(this.id));
             })
         });
         boards.addNewBoardCommand.addEventListener('click', function() {
@@ -26,12 +26,8 @@ export class AppComponent {
                 return;
             }
             let json = JSON.stringify(desktopData);
-            Server.post(json);
+            //Server.post(json);
             window.location.reload();
-            //boards.changeMenuListCondition.call(boards.htmlElements);
-            //boards.crateBoardMenuLink(boards.menuContent, desktopData);
-            //desktop.showDesktop(desktopData);
         })
-
     }
 }

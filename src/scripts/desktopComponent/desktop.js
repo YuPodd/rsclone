@@ -22,13 +22,15 @@ export class Desktop {
         }
         const desktopData = LocalStorage.getData('ActiveBoard');
         if (desktopData === null) {
-            this.showDesktop({name: 'There are no boards here yet', background: EMPTY_IMAGE}, true);
+            HTML_BODY.style.backgroundImage = EMPTY_IMAGE;
+            this.boardName.innerText = 'There are no boards here yet';
         } else {
             this.showDesktop(desktopData);
         }
     }
 
     createMembersIco(members) {
+        this.membersConainer.innerHTML = '';
         members.forEach(element => {
             const member = ElementsCreator.createElement('div', 'member_ico', this.membersConainer);
             member.innerText = element;
@@ -37,11 +39,21 @@ export class Desktop {
         addMemberButton.innerText = '+';
     }
 
-    showDesktop(desktopData, defaultData = false) {
+    showDesktop(desktopData) {
         HTML_BODY.style.backgroundImage = desktopData.background;
         this.boardName.innerText = desktopData.name;
-        if (!defaultData) {
-            this.createMembersIco(desktopData.members);
-        }
+        this.createMembersIco(desktopData.members);
+        LocalStorage.setObjectData('ActiveBoard', desktopData);
+    }
+
+    getBoardData(boardName) {
+        let allBoardsData = LocalStorage.getData('existingBoards');
+        let boardData;
+        allBoardsData.forEach((board) => {
+            if(board.name === boardName) {
+                boardData = board;
+            }
+        })
+        return boardData;
     }
 }
