@@ -8,6 +8,10 @@
     background-blend-mode: soft-light;
 }
 
+[data-theme="dark"] .boards-menu_content {
+    background-color: grey;
+}
+
 [data-theme="dark"] .navbar-brand,
 .custom-control-label,
 .time-container {
