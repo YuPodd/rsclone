@@ -142,7 +142,6 @@
     display: flex;
     justify-content: space-between;
     width: 100%;
-    height: 100px;
 }
 .menu-container__button-closePopup{
     all: unset;
@@ -184,7 +183,6 @@
 
 .menu__comments{
     width: 100%;
-    height: 100px;
 }
 
 .comment{
