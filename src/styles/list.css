@@ -22,14 +22,14 @@
     height: 50px;
 }
 
-.list{
+.list {
     width: 15em;
     min-width: 12em;
     min-height: 50px;
     overflow: auto;
     margin: 10px;
     background-color: white;
-    border: blue 1px solid;
+    border: var(--white-border);
 }
 
 .list__header{
@@ -38,7 +38,6 @@
     justify-content: space-around;
     height: 30px;
     padding: 12px;
-    border-bottom: blue 3px solid;
 }
 
 .list__title{

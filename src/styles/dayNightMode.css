@@ -18,8 +18,13 @@
     background-color: var(--secondary) !important;
 }
 
-[data-theme="dark"] .list,
-.list__header {
+[data-theme="dark"] .list {
+    background-color: grey ;
+    border: var(--gray-dark);
+    border-bottom: grey !important;
+}
+
+[data-theme="dark"] .list__header {
     background-color: grey;
     border: var(--gray-dark);
     border-bottom: grey !important;
