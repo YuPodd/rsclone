@@ -4,6 +4,7 @@
 @import './timeContainer.css';
 @import './modalWindow.css';
 @import './varibles.css';
+@import './dayNightMode.css';
 
 button,
 input {

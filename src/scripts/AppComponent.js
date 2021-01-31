@@ -1,11 +1,11 @@
 import { BoardsMenu } from './boardsComponent/boardsMenu';
 import { Desktop } from './desktopComponent/desktop';
+import DayNightMode from "./dayNightMode/dayNightMode";
 
 export class AppComponent {
     constructor() {
         this.setEventsListeners();
     }
-
     setEventsListeners() {
         const boards = new BoardsMenu();
         const desktop = new Desktop();
