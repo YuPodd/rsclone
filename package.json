@@ -43,6 +43,7 @@
   "dependencies": {
     "@popperjs/core": "^2.6.0",
     "bootstrap": "^5.0.0-beta1",
-    "sortablejs": "^1.13.0"
+    "sortablejs": "^1.13.0",
+    "y-websockets-server": "^9.2.1"
   }
 }

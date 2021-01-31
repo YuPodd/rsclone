@@ -4,27 +4,44 @@ import { HTML_BODY } from '../constants/htmlElements';
 import { EMPTY_IMAGE } from '../constants/boardBackgrounds';
 
 export class Desktop {
-    constructor() {
+    constructor(modalWindow) {
         this.boardName;
-        this.createDesktop();
+        this.membersConainer;
+        this.createDesktop(modalWindow);
     }
 
-    createDesktop() {
+    createDesktop(modalWindow) {
         const mainContainer = document.querySelector('.desktop_container');
+        const headerContent = ElementsCreator.createElement('div', 'header_content', mainContainer);
+        this.boardName = ElementsCreator.createElement('h2', 'board-name', headerContent);
+        this.membersConainer = ElementsCreator.createElement('div', 'members_container', headerContent);
         const desktopContent = ElementsCreator.createElement('div', 'desktop_content', mainContainer);
-        const desktopData = LocalStorage.getData('ActiveBoard');
-        this.boardName = ElementsCreator.createElement('h2', 'board-name', desktopContent);
-        if (desktopData === null) {
-            HTML_BODY.style.backgroundImage = EMPTY_IMAGE;
-            return;
+        const appUser = LocalStorage.getData('AppUser');
+        if (appUser === null) {
+            modalWindow.showWindow('Pleace, enter your name', true);
         }
-        this.boardName.innerText = desktopData.name;
-        HTML_BODY.style.backgroundImage = desktopData.background;
+        const desktopData = LocalStorage.getData('ActiveBoard');
+        if (desktopData === null) {
+            this.showDesktop({name: 'There are no boards here yet', background: EMPTY_IMAGE}, true);
+        } else {
+            this.showDesktop(desktopData);
+        }
     }
 
-    showDesktop(desktopData) {
+    createMembersIco(members) {
+        members.forEach(element => {
+            const member = ElementsCreator.createElement('div', 'member_ico', this.membersConainer);
+            member.innerText = element;
+        });
+        const addMemberButton = ElementsCreator.createElement('button', 'add-member_button', this.membersConainer);
+        addMemberButton.innerText = '+';
+    }
+
+    showDesktop(desktopData, defaultData = false) {
         HTML_BODY.style.backgroundImage = desktopData.background;
         this.boardName.innerText = desktopData.name;
-        LocalStorage.setObjectData('ActiveBoard', desktopData);
+        if (!defaultData) {
+            this.createMembersIco(desktopData.members);
+        }
     }
 }
