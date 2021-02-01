@@ -8,12 +8,16 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    width: 1000px;
+    justify-content: center;
+    max-width: 1000px;
     height: 80%;
     margin: 0 auto;
     padding: 10px;
 }
-
+.button-createList-wrapper{
+    display: flex;
+    justify-content: center;
+}
 .button-createList{
     all: unset;
     background: url(../assets/ico/add.svg) no-repeat top right;
