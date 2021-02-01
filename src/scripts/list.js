@@ -1,4 +1,5 @@
 import createBlock from './exportFunctions'
+import Sortable from 'sortablejs';
 
 let enableDisable = 1; // включение/отключение редактирования текстовой информации
 let id = 0; // количество item на html странице
@@ -94,6 +95,20 @@ const outputList = function() {
 const outputItem = function (e) {
     const item = createItem();
     e.target.parentNode.appendChild(item);
+
+    //add drag'n'drop functionality
+    let items = document.getElementsByClassName('list__content');
+    for (let elem of items) {
+      Sortable.create(elem, {
+          animation: 500,
+          group: {
+            name: "shared",
+            put: true,
+            pull: true,
+          },
+          sort: true
+        });  
+  }
 }
 
 //редактирование и сохранение измененного заголовка листа
