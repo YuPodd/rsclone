@@ -1,13 +1,13 @@
 import { ModalWindow } from './modalWindowComponent/modalWindow';
 import { BoardsMenu } from './boardsComponent/boardsMenu';
-import { Desktop } from './desktopComponent/desktop';
+import { Desktop } from './desktopComponent/desktop
 import Server from './utils/server';
+import DayNightMode from "./dayNightMode/dayNightMode";
 
 export class AppComponent {
     constructor() {
         this.setEventsListeners();
     }
-
     setEventsListeners() {
         const modalWindow = new ModalWindow();
         const boards = new BoardsMenu();

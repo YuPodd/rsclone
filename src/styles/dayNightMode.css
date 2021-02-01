@@ -1,0 +1,34 @@
+.custom-control .custom-switch {
+    cursor: pointer;
+}
+
+[data-theme="dark"] {
+    background-color: var(--secondary);
+    color: whitesmoke;
+    background-blend-mode: soft-light;
+}
+
+[data-theme="dark"] .navbar-brand,
+.custom-control-label,
+.time-container {
+    color: var(--gray-dark);
+}
+
+[data-theme="dark"] .container {
+    background-color: var(--secondary) !important;
+}
+
+[data-theme="dark"] .list,
+.list__header {
+    background-color: grey;
+    border: var(--gray-dark);
+    border-bottom: grey !important;
+}
+
+[data-theme="dark"] .bg-light {
+    background-color: #ccc !important;
+}
+
+[data-theme="dark"] .comment {
+    color: var(--gray-dark);
+}
