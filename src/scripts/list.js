@@ -44,6 +44,7 @@ function createList() {
 //функция создания одного item и его возврата
 function createItem() {
     const item = createBlock("div", "item");
+    item.classList.add("list-group-item");
     const item__text = createBlock("p", "item__text");
     item__text.addEventListener('click', function(e) {
         editSaveTextItem(e);
@@ -66,7 +67,8 @@ function createItem() {
         numberButtonOpenPopup = e.target.value;
         openPopup(e);
     });
-    const item__button__delete =createBlock("button", "item__button__delete")
+    const item__button__delete =createBlock("button", "item__button__delete");
+    item__button__delete.textContent = 'X';
     item__button__delete.addEventListener('click', function(e) {
         deleteItem(e);
     });
