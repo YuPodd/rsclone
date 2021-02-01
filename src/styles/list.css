@@ -34,7 +34,8 @@
     overflow: auto;
     margin: 10px;
     background-color: white;
-    border: blue 1px solid;
+    border:1px solid #cfcfcf;
+  
 }
 
 .list__header{
@@ -43,7 +44,7 @@
     justify-content: space-around;
     height: 10%;
     padding: 12px;
-    border-bottom: blue 3px solid;
+    background: #cfcfcf;
 }
 
 .list__title{
@@ -60,7 +61,6 @@
 .item{
     display: flex;
     flex-direction: row;
-    border: black 1px solid;
     padding: 10px;
     justify-content: space-around;
 }
@@ -75,7 +75,7 @@
 
 .button_createItem{
     all: unset;
-    background: url(../assets/ico/add-blue.svg) no-repeat top right;
+    background: url(../assets/ico/add-2.svg) no-repeat top right;
     background-size: cover;
     width: 30px;
     height: 30px;
@@ -97,7 +97,8 @@
 
 .list__header__button__delete{
     all: unset;
-    background: url(../assets/ico/delete.svg) no-repeat top right;
+    background: url(../assets/ico/file-remove.svg) no-repeat top right;
+    opacity: 0.7;
     background-size: cover;
     width: 30px;
     height: 30px;
@@ -106,7 +107,7 @@
 
 .item__button__open{
     all: unset;
-    background: url(../assets/ico/open.svg) no-repeat top right;
+    background: url(../assets/ico/edit.svg) no-repeat top right;
     background-size: cover;
     width: 30px;
     height: 30px;
@@ -115,7 +116,6 @@
 
 .item__button__delete{
     all: unset;
-    background: url(../assets/ico/delete.svg) no-repeat top right;
     background-size: cover;
     width: 30px;
     height: 30px;

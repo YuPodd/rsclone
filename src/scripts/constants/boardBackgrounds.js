@@ -8,14 +8,12 @@ import perecatipole from '../../assets/pictures/perekatipole.jpg';
 import lemons from '../../assets/pictures/lemons.jpg';
 import leaves from '../../assets/pictures/leaves.jpg';
 import leaves2 from '../../assets/pictures/leaves2.jpg';
-import camel from '../../assets/pictures/camel.jpg';
 import christmas from '../../assets/pictures/christmas.jpg';
 import flowers from '../../assets/pictures/flowers.jpg';
 import flowers2 from '../../assets/pictures/flowers2.jpg';
-import brown from '../../assets/pictures/brown.jpg';
 import winter from '../../assets/pictures/winter.jpg';
 
 
 
-export const BACKGROUND_IMAGES = [nature1, nature2, nature3, nature4, nature5, nature6, lemons, leaves, leaves2, camel, christmas, flowers, flowers2, brown, winter];
+export const BACKGROUND_IMAGES = [nature1, nature2, nature3, nature4, nature5, nature6, lemons, leaves, leaves2, christmas, flowers, flowers2, winter];
 export const EMPTY_IMAGE = `url(${perecatipole})`;
