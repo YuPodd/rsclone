@@ -1,4 +1,5 @@
 import createBlock from './exportFunctions'
+import Sortable from 'sortablejs';
 
 let enableDisable = 1; // включение/отключение редактирования текстовой информации
 let id = 0; // количество item на html странице
@@ -43,6 +44,7 @@ function createList() {
 //функция создания одного item и его возврата
 function createItem() {
     const item = createBlock("div", "item");
+    item.classList.add("list-group-item");
     const item__text = createBlock("p", "item__text");
     item__text.addEventListener('click', function(e) {
         editSaveTextItem(e);
@@ -65,7 +67,8 @@ function createItem() {
         numberButtonOpenPopup = e.target.value;
         openPopup(e);
     });
-    const item__button__delete =createBlock("button", "item__button__delete")
+    const item__button__delete =createBlock("button", "item__button__delete");
+    item__button__delete.textContent = 'X';
     item__button__delete.addEventListener('click', function(e) {
         deleteItem(e);
     });
@@ -94,6 +97,20 @@ const outputList = function() {
 const outputItem = function (e) {
     const item = createItem();
     e.target.parentNode.appendChild(item);
+
+    //add drag'n'drop functionality
+    let items = document.getElementsByClassName('list__content');
+    for (let elem of items) {
+      Sortable.create(elem, {
+          animation: 500,
+          group: {
+            name: "shared",
+            put: true,
+            pull: true,
+          },
+          sort: true
+        });  
+  }
 }
 
 //редактирование и сохранение измененного заголовка листа

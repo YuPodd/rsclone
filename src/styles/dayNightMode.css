@@ -5,6 +5,7 @@
 [data-theme="dark"] {
     background-color: var(--secondary);
     color: whitesmoke;
+    background-blend-mode: soft-light;
 }
 
 [data-theme="dark"] .navbar-brand,
@@ -26,4 +27,8 @@
 
 [data-theme="dark"] .bg-light {
     background-color: #ccc !important;
+}
+
+[data-theme="dark"] .comment {
+    color: var(--gray-dark);
 }

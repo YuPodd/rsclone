@@ -1,15 +1,13 @@
 import ElementsCreator from '../utils/elementsCreator';
 import LocalStorage from '../utils/localStorage';
-import { ModalWindow } from '../modalWindowComponent/modalWindow';
 import { BACKGROUND_IMAGES } from '../constants/boardBackgrounds';
 import { BOARDS_MENU_CONTAINER } from '../constants/htmlElements';
 
 export class AddBoard {
     constructor() {
-        this.modalWindow = new ModalWindow()
         this.backgroundImages = BACKGROUND_IMAGES;
         this.createBoardCommand;
-        this.newBoardData = {name: '', background: ''};
+        this.newBoardData = {name: '', background: '', members: []};
         this.popupContent = this.createPopupContent();
     }
 
@@ -57,10 +55,11 @@ export class AddBoard {
 
     saveNewBoard() {
         if (this.newBoardData.name == "") {
-            this.modalWindow.showWindow('Enter the board name')
             return null;
         } else {
-           LocalStorage.setArrayData('existingBoards', this.newBoardData);
+            this.newBoardData.members.push(LocalStorage.getData('AppUser').name)
+            LocalStorage.setArrayData('existingBoards', this.newBoardData);
+            LocalStorage.setObjectData('ActiveBoard', this.newBoardData);
         }
         return this.newBoardData;
     }
