@@ -3,12 +3,28 @@
     border: none;
 }
 .github-container{
-    width: 50%;
+    width: 70%;
     display: flex;
     justify-content: space-between;
 }
-@media screen and (max-width: 800px) {
-    .footer-container {
-      font-size: 0.8rem;
-    }
+
+@media only screen and (max-width: 800px) {
+  .github-container{
+      font-size: 0.7rem;
   }
+  .rs-image{
+      width: 70%;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+    .github-container{
+     font-size: 0.5rem;
+ }
+ .rs-link{
+  font-size: 0.5rem;
+ }
+ .rs-image{
+     width: 50%;
+ }
+}
