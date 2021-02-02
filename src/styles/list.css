@@ -199,3 +199,26 @@
     padding: 0.5em;
     font-size: 0.8em;
 }
+
+@media only screen and (max-width: 550px) {
+    .list{
+        width: 12em;
+    }
+    .button-createList{
+    width: 35px;
+    height: 35px;
+  }
+  .button_createItem, .list__header__button__delete, .item__button__open{
+    width: 25px;
+    height: 26px;
+  }
+  .button_createItem{
+    margin: 5px auto;
+  }
+  .list__header{
+    padding: 7px;
+  }
+  .list__title{
+    font-size: 1.3rem;
+  }
+}

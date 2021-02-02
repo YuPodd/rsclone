@@ -20,3 +20,13 @@ button:focus {
     background-size: cover;
     background-repeat: no-repeat;
 }
+@media only screen and (max-width: 550px) {
+    .time-container {
+      display: none;
+    }
+    .button-createList{
+    width: 35px;
+    height: 35px;
+  }
+}
+  
