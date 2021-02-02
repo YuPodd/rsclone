@@ -34,6 +34,10 @@
     border-bottom: grey !important;
 }
 
+[data-theme="dark"] .list-group-item, .item__button__delete, .modal_content {
+    color: #212529;
+}
+
 [data-theme="dark"] .bg-light {
     background-color: #ccc !important;
 }
