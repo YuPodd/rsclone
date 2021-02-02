@@ -19,6 +19,7 @@ button:focus {
 .body {
     background-size: cover;
     background-repeat: no-repeat;
+    min-height: 100vh;
 }
 @media only screen and (max-width: 550px) {
     .time-container {
