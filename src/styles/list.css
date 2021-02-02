@@ -8,12 +8,16 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    width: 1000px;
+    justify-content: center;
+    max-width: 1000px;
     height: 80%;
     margin: 0 auto;
     padding: 10px;
 }
-
+.button-createList-wrapper{
+    display: flex;
+    justify-content: center;
+}
 .button-createList{
     all: unset;
     background: url(../assets/ico/add.svg) no-repeat top right;
@@ -22,62 +26,25 @@
     height: 50px;
 }
 
-.list {
+.list{
     width: 15em;
     min-width: 12em;
     min-height: 50px;
+    height:100%;
     overflow: auto;
     margin: 10px;
-    background-color: antiquewhite;
-    border: var(--white-border);
-    -webkit-transform: rotate(-6deg);
-    -o-transform: rotate(-6deg);
-    -moz-transform:rotate(-6deg);
-}
-
-.list:nth-child(even) {
-    -o-transform:rotate(4deg);
-    -webkit-transform:rotate(4deg);
-    -moz-transform:rotate(4deg);
-    position:relative;
-    top:5px;
-    background:#cfc;
-}
-
-.list:nth-child(3n) {
-    -o-transform:rotate(-3deg);
-    -webkit-transform:rotate(-3deg);
-    -moz-transform:rotate(-3deg);
-    position:relative;
-    top:-5px;
-    background:#ccf;
-}
-
-.list:nth-child(5n) {
-    -o-transform:rotate(5deg);
-    -webkit-transform:rotate(5deg);
-    -moz-transform:rotate(5deg);
-    position:relative;
-    top:-7px;
-}
-
-.list, .list:hover, .list:focus {
-    box-shadow:10px 10px 7px rgba(0,0,0,.7);
-    -moz-box-shadow:10px 10px 7px rgba(0,0,0,.7);
-    -webkit-box-shadow: 10px 10px 7px rgba(0,0,0,.7);
-    -webkit-transform: scale(1.25);
-    -moz-transform: scale(1.25);
-    -o-transform: scale(1.25);
-    position:relative;
-    z-index:5;
+    background-color: white;
+    border:1px solid #cfcfcf;
+  
 }
 
 .list__header{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    height: 30px;
+    height: 10%;
     padding: 12px;
+    background: #cfcfcf;
 }
 
 .list__title{
@@ -89,13 +56,14 @@
     display: flex;
     flex-direction: column;
     min-height: 50px;
+    height: 90%;
 }
 .item{
     display: flex;
     flex-direction: row;
-    border: black 1px solid;
     padding: 10px;
     justify-content: space-around;
+    position: initial;
 }
 .item__text{
     margin: auto 0;
@@ -108,7 +76,7 @@
 
 .button_createItem{
     all: unset;
-    background: url(../assets/ico/add-blue.svg) no-repeat top right;
+    background: url(../assets/ico/add-2.svg) no-repeat top right;
     background-size: cover;
     width: 30px;
     height: 30px;
@@ -130,7 +98,7 @@
 
 .list__header__button__delete{
     all: unset;
-    background: url(../assets/ico/delete.svg) no-repeat top right;
+    background: url(../assets/ico/file-remove.svg) no-repeat top right;
     background-size: cover;
     width: 30px;
     height: 30px;
@@ -139,7 +107,7 @@
 
 .item__button__open{
     all: unset;
-    background: url(../assets/ico/open.svg) no-repeat top right;
+    background: url(../assets/ico/edit.svg) no-repeat top right;
     background-size: cover;
     width: 30px;
     height: 30px;
@@ -148,7 +116,6 @@
 
 .item__button__delete{
     all: unset;
-    background: url(../assets/ico/delete.svg) no-repeat top right;
     background-size: cover;
     width: 30px;
     height: 30px;

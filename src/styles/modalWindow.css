@@ -1,4 +1,5 @@
-.modal_container.hidden {
+.modal_container.hidden,
+.modal_input.hidden {
     display: none;
 }
 
@@ -20,8 +21,8 @@
 
 .modal_content {
     flex-direction: column;
-    width: 200px;
-    height: 100px;
+    width: 250px;
+    height: 150px;
 }
 
 .modal_content,
@@ -30,13 +31,23 @@
     background-color: white;
 }
 
-.modal-accept_button {
+.modal_input.visibly {
+    display: block;
+    width: 90%;
+    margin-bottom: 10px;
+}
+
+
+.modal-accept_button,
+.modal_input.visibly {
     border: var(--black-border);
     opacity: var(--unhover-opasity);
     transition: var(--mid-tarnsition);
 }
 
-.modal-accept_button:hover {
+.modal-accept_button:hover,
+.modal_input.visibly:hover,
+.modal_input.visibly:focus {
     opacity: var(--hover-opasity);
     background-color: rgba(0, 0, 0, 0.2);
 }
