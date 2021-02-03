@@ -18,24 +18,14 @@ export class ModalWindow {
         this.acceptCommand.innerText = 'accept';
     }
 
-    showWindow(modalWindowMessage, getInputData = false) {
+    showWindow(modalWindowMessage, showInputElement = false) {
         this.message.innerText = modalWindowMessage;
         this.container.className = 'modal_container visibly';
-        if (getInputData) {
+        if (showInputElement) {
             this.input.className = 'modal_input visibly';
-            const thisClass = this;
-            function clickListener() {
-                if (thisClass.input.value !== '') {
-                    LocalStorage.setObjectData('AppUser', {name: thisClass.input.value});
-                    thisClass.hiddenWindow.bind(thisClass.container)();
-                    thisClass.input.className = 'modal_input hidden';
-                    thisClass.acceptCommand.removeEventListener('click', clickListener);
-                }
-            }
-            this.acceptCommand.addEventListener('click', clickListener);
-        } else {
+        } /*else {
             this.acceptCommand.onclick = this.hiddenWindow.bind(this.container);
-        }
+        }*/
     }
 
     hiddenWindow() {

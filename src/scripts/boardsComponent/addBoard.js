@@ -59,7 +59,7 @@ export class AddBoard {
         } else {
             this.newBoardData.members.push(LocalStorage.getData('AppUser').name)
             LocalStorage.setArrayData('existingBoards', this.newBoardData);
-            LocalStorage.setObjectData('ActiveBoard', this.newBoardData);
+            LocalStorage.setObjectData('ActiveBoard', {name: this.newBoardData.name});
         }
         return this.newBoardData;
     }

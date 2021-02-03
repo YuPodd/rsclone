@@ -4,6 +4,7 @@ import board from '../../assets/ico/board.svg';
 import { AddBoard } from './addBoard';
 import { NAVBAR_BOARDS_BUTTON } from '../constants/htmlElements';
 import { BOARDS_MENU_CONTAINER } from '../constants/htmlElements';
+import Server from '../utils/server';
 
 export class BoardsMenu {
     constructor() {

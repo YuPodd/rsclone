@@ -10,11 +10,19 @@
     align-items: center;
 }
 
+.members_content {
+    display: flex;
+}
+
 .member_ico {
     margin: 0 10px;
 }
 
-.add-member_button {
+.add-member_button.hidden {
+    display: none;
+}
+
+.add-member_button.visibly {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -28,10 +36,10 @@
     background-color: white;
 }
 
-.add-member_button:hover {
+.add-member_button.visibly:hover {
     opacity: var(--hover-opasity);
 }
 
-.add-member_button:focus {
+.add-member_button.visibly:focus {
     outline: none;
 }
