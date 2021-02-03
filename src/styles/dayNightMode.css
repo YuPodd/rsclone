@@ -18,28 +18,28 @@
     color: var(--gray-dark);
 }
 
-[data-theme="dark"] .container {
-    background-color: var(--secondary) !important;
-}
-
-[data-theme="dark"] .list {
-    background-color: grey ;
+[data-theme="dark"] .list, .item {
+    background-color: #acacac;
     border: var(--gray-dark);
-    border-bottom: grey !important;
 }
 
 [data-theme="dark"] .list__header {
-    background-color: grey;
+    background-color: #acacac;
     border: var(--gray-dark);
-    border-bottom: grey !important;
+    border-bottom: grey;
 }
 
-[data-theme="dark"] .list-group-item, .item__button__delete, .modal_content {
+[data-theme="dark"] .item__button__delete, .modal_content {
     color: #212529;
 }
 
 [data-theme="dark"] .bg-light {
     background-color: #ccc !important;
+}
+
+[data-theme="dark"] .list-group-item {
+    color: #212529;
+    background-color: #ccc
 }
 
 [data-theme="dark"] .comment {

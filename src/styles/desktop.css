@@ -2,7 +2,7 @@
     display: flex;
     justify-content: space-between;
     padding: 0 10px;
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.7);
 }
 
 .members_container {
