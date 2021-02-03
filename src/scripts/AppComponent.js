@@ -25,6 +25,7 @@ export class AppComponent {
         boards.existingBoardsMenuLinks.forEach(element => {
             element.addEventListener('click', function () {
                 boards.changeMenuListCondition.call(boards.htmlElements);
+                desktop.activeBoard.name = this.id;
                 Server.getBoard(desktop);
             })
         });
@@ -37,6 +38,7 @@ export class AppComponent {
             boards.changeMenuListCondition.bind(boards.htmlElements)();
             desktop.desktopData = newBoardData;
             Server.postBoard(desktop);
+            Server.newBoardToUser(desktop);
             window.location.reload();
         })
         modalWindow.acceptCommand.addEventListener('click', function() {

@@ -1,4 +1,5 @@
 import { SERVER } from '../constants/server';
+import { Desktop } from '../desktopComponent/desktop';
 import LocalStorage from './localStorage';
 
 export default class Server {
@@ -9,7 +10,6 @@ export default class Server {
     }
 
     static getUser(userName, desktop,  modalWindow) {
-        console.log(desktop.desktopData)
         SERVER.open("GET", `http://localhost:4200/user/${userName}&${desktop.desktopData.name}&${desktop.desktopData.background}`, true);
         SERVER.send();
         SERVER.onload = function() {
@@ -30,12 +30,17 @@ export default class Server {
         desktop.showDesktop();
     }
 
+    static newBoardToUser(desktop) {
+        let user = LocalStorage.getData('AppUser');
+        SERVER.open("POST", `http://localhost:4200/newBoardToUser/${user.name}`, true);
+        SERVER.send(JSON.stringify({name: desktop.desktopData.name, background: desktop.desktopData.background}));
+    }
+
     static getBoard(desktop) {
         SERVER.open("GET", `http://localhost:4200/board/${desktop.activeBoard.name}`, true);
         SERVER.send();
         SERVER.onload = function() {
             desktop.desktopData = JSON.parse(this.responseText);
-            console.log(desktop.desktopData)
             desktop.showDesktop();
         }
     }
