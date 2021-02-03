@@ -1,0 +1,57 @@
+.modal_container.hidden,
+.modal_input.hidden {
+    display: none;
+}
+
+.modal_container.visibly,
+.modal_content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal_container.visibly {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal_content {
+    flex-direction: column;
+    width: 250px;
+    height: 150px;
+}
+
+.modal_content,
+.modal-accept_button {
+    border-radius: var(--form-border-radius);
+    background-color: white;
+}
+
+.modal_input.visibly {
+    display: block;
+    width: 90%;
+    margin-bottom: 10px;
+}
+
+
+.modal-accept_button,
+.modal_input.visibly {
+    border: var(--black-border);
+    opacity: var(--unhover-opasity);
+    transition: var(--mid-tarnsition);
+}
+
+.modal-accept_button:hover,
+.modal_input.visibly:hover,
+.modal_input.visibly:focus {
+    opacity: var(--hover-opasity);
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.modal-accept_button:focus {
+    outline: none;
+}
