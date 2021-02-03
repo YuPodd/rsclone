@@ -7,13 +7,12 @@ import nature6 from '../../assets/pictures/nature6.jpg';
 import perecatipole from '../../assets/pictures/perekatipole.jpg';
 import lemons from '../../assets/pictures/lemons.jpg';
 import leaves from '../../assets/pictures/leaves.jpg';
-import leaves2 from '../../assets/pictures/leaves2.jpg';
 import christmas from '../../assets/pictures/christmas.jpg';
 import flowers from '../../assets/pictures/flowers.jpg';
 import flowers2 from '../../assets/pictures/flowers2.jpg';
-import winter from '../../assets/pictures/winter.jpg';
+import leaves3 from '../../assets/pictures/leaves-3.jpg';
+import autumn from '../../assets/pictures/autumn.jpg';
+import deer from '../../assets/pictures/deer.jpg';
 
-
-
-export const BACKGROUND_IMAGES = [nature1, nature2, nature3, nature4, nature5, nature6, lemons, leaves, leaves2, christmas, flowers, flowers2, winter];
+export const BACKGROUND_IMAGES = [deer, leaves3, autumn, lemons, nature1, nature2, nature3, nature4, nature5, nature6, leaves, christmas, flowers, flowers2];
 export const EMPTY_IMAGE = `url(${perecatipole})`;
