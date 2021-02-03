@@ -1,5 +1,6 @@
 import createBlock from './exportFunctions'
 import Sortable from 'sortablejs';
+import LocalStorage from './utils/localStorage';
 
 let enableDisable = 1; // включение/отключение редактирования текстовой информации
 let id = 0; // количество item на html странице
@@ -10,6 +11,7 @@ const objectItem = []; // массив объектов, в котором хр�
 
 const lists = [];
 let listNumber = 0;
+const activeBoard = LocalStorage.getData('ActiveBoard').name;
 
 // функция создания листа
 function createList() {
@@ -48,6 +50,7 @@ function createList() {
         itemData: objectItem,
     };
     console.log(lists);
+    LocalStorage.setObjectData(activeBoard, lists);
     listNumber++;
     return list;
 }
