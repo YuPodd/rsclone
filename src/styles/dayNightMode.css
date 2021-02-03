@@ -29,7 +29,7 @@
     border-bottom: grey;
 }
 
-[data-theme="dark"] .item__button__delete, .modal_content {
+[data-theme="dark"] .item__button__delete, .modal_content, .board-name, .member_ico {
     color: #212529;
 }
 
