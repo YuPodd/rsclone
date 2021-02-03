@@ -8,6 +8,9 @@ let numberComment = 0; // номер комментария
 const objectItem = []; // массив объектов, в котором хранятся данные каждого item:
                        // имя item, описание item, комментарии item
 
+const lists = [];
+let listNumber = 0;
+
 // функция создания листа
 function createList() {
     const list = createBlock("div", "list");
@@ -25,6 +28,7 @@ function createList() {
         }
     });
     const list__header__button__delete = createBlock("button", "list__header__button__delete");
+    list__header__button__delete.value = listNumber;
     list__header__button__delete.addEventListener('click', function(e) {
         deleteList(e);
     });
@@ -38,6 +42,13 @@ function createList() {
     list__header.appendChild(list__title);
     list__header.appendChild(list__header__button__delete);
     list__content.appendChild(button_createItem);
+    lists[listNumber] = {
+        id: `${listNumber}`,
+        nameList: `${list__title.innerHTML}`,
+        itemData: objectItem,
+    };
+    console.log(lists);
+    listNumber++;
     return list;
 }
 
@@ -82,7 +93,7 @@ function createItem() {
         description: 'Add a description ...',
         comment: [],
     };
-    console.log(objectItem);
+    //console.log(objectItem);
     id++;
     return item;
 }
@@ -116,6 +127,7 @@ const outputItem = function (e) {
 //редактирование и сохранение измененного заголовка листа
 const editSaveTitleList = function(e) {
     const list = e.target.parentNode.querySelector('.list__title');
+    let numberButtonDelete = e.target.parentNode.querySelector('.list__header__button__delete').value;
     if (enableDisable === 1) {
         enableDisable = 0;
 		list.contentEditable = true;
@@ -123,7 +135,12 @@ const editSaveTitleList = function(e) {
 	}
 	else {
         enableDisable = 1;
-        list.contentEditable = false
+        list.contentEditable = false;
+        lists.forEach(function(element){
+            if(element.id === numberButtonDelete){
+                element.nameList = list.innerHTML;//localStorage
+            }
+        });
     }
 }
 
@@ -150,12 +167,22 @@ const editSaveTextItem = function(e) {
 const deleteList = function(e){
     const list__header = e.target.parentNode.parentNode;
     list__header.remove();
+    lists.forEach(function(element){
+        if(element.id === e.target.parentNode.querySelector('.list__header__button__delete').value){
+            lists.splice(Number.parseInt(element.id), 1);
+        }
+    });
 }
 
 //функция удаления одного item
 const deleteItem = function(e) {
     const item = e.target.parentNode;
     item.remove();
+    objectItem.forEach(function(element){
+        if(element.id === e.target.parentNode.querySelector('.item__button__open').value){
+            objectItem.splice(Number.parseInt(element.id), 1);
+        }
+    });
 }
 
 //создание всплывающего окна
