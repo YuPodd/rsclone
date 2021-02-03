@@ -137,6 +137,11 @@
     outline: none;
 }
 
+.board-name_input,
+.create-board_button {
+    padding: 0 5px;
+}
+
 .board-name_input {
     width: 50vw;
 }
